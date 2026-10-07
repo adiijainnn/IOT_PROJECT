@@ -1,0 +1,17 @@
+# ESP-IDF Build & Config
+build/
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+
+# Web Dashboard Dependencies
+dashboard/node_modules/
+dashboard/dist/
+.DS_Store
+
+# IDE / Editor Files
+.vscode/
+.idea/
+*.log

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "IoT Systems Engineer",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 150, "left": -220, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 0, "left": -220, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 50, "left": 220, "attrs": {} },
+    { "type": "wokwi-led", "id": "led_pump", "top": 50, "left": 350, "attrs": { "color": "green" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 90, "left": 300, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer", "id": "buzzer1", "top": 180, "left": 220, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn_manual", "top": -150, "left": -220, "attrs": { "color": "blue" } },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -180, "left": 150, "attrs": { "pins": "i2c" } }
+  ],
+  "connections": [
+    [ "esp:3V3", "dht1:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "dht1:GND", "black", [ "v0" ] ],
+    [ "esp:4", "dht1:SDA", "green", [ "v0" ] ],
+
+    [ "esp:3V3", "pot1:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "pot1:GND", "black", [ "v0" ] ],
+    [ "esp:34", "pot1:SIG", "yellow", [ "v0" ] ],
+
+    [ "esp:5V", "relay1:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "relay1:GND", "black", [ "v0" ] ],
+    [ "esp:26", "relay1:IN", "orange", [ "v0" ] ],
+
+    [ "esp:27", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "led_pump:A", "green", [ "v0" ] ],
+    [ "esp:GND.1", "led_pump:C", "black", [ "v0" ] ],
+
+    [ "esp:25", "buzzer1:1", "purple", [ "v0" ] ],
+    [ "esp:GND.1", "buzzer1:2", "black", [ "v0" ] ],
+
+    [ "esp:14", "btn_manual:1.A", "blue", [ "v0" ] ],
+    [ "esp:GND.1", "btn_manual:2.A", "black", [ "v0" ] ],
+
+    [ "esp:5V", "lcd1:VCC", "red", [ "v0" ] ],
+    [ "esp:GND.1", "lcd1:GND", "black", [ "v0" ] ],
+    [ "esp:21", "lcd1:SDA", "blue", [ "v0" ] ],
+    [ "esp:22", "lcd1:SCL", "yellow", [ "v0" ] ]
+  ]
+}

@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = "build/smart_irrigation_system.bin"
+elf = "build/smart_irrigation_system.elf"
